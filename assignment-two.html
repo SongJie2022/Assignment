@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis of restaurants in Yuen Long District</title>
+    <link rel="stylesheet" href="assignment-two.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+  </head>
+  <body>
+    <main>
+      <section id="navbar">
+        <div id="nav_div">
+          <nav id="nav">
+            <div class="nav-div"><a href="#content">Analysis</a></div>
+            <div class="nav-div"><a href="#contact">Contact</a></div>
+            <div class="nav-div">
+              <a href="index.html">Back to Main</a>
+            </div>
+          </nav>
+        </div>
+        <img src="openrice.png" alt="openrice_logo" id="logo" />
+      </section>
+      <section id="content">
+        <article id="text">
+          <h2 class="title">Analysis of restaurants in Yuen Long District</h2>
+          <div id="writing_info">
+            <div id="author"><i class="fas fa-feather-alt"></i>SONG Jie</div>
+            <div id="date">
+              <i class="fas fa-calendar-alt"></i>14 October, 2022
+            </div>
+          </div>
+          <p>
+            This data analysis report is based on 1040 data scrapped from
+            Openrice. After the process of removing duplicate values and
+            nulling, there are 840 pieces of valid data. The data visualization
+            is realized by python, and SQL performs data analysis.
+          </p>
+          <img class="picture" src="wordcloud.png" alt="" />
+          <h3 class="subtitle" id="Q1">
+            1. How are the ratings, number of reviews and price per capita of
+            restaurants in Yuen Long District distributed?
+          </h3>
+          <h4 class="detail">(1) Distribution of scores</h4>
+          <img class="picture" src="distribution_of_scores.png" alt="" />
+          <p>
+            The restaurant ratings are mainly concentrated in 3.5 and 4 points;
+            these two score groups account for 74.4% of the overall. It roughly
+            follows a left-skewed normal distribution. The data reflects that
+            most restaurants can basically meet users' expectations and reach
+            the average score.
+          </p>
+          <h4 class="detail">(2) Distribution of the number of comments</h4>
+          <img
+            class="picture"
+            src="distribution_of_the_number_of_comments.png"
+            alt=""
+          />
+          <p>
+            The number of restaurant reviews is mainly concentrated in the range
+            of 0-300, with a few in the range of 300-600. Compared with the
+            mainland public reviews, the average number of reviews in the range
+            of 1000-2000 reflects that Openrice has room for improvement in
+            motivating users to comment.
+          </p>
+          <h4 class="detail">(3) Distribution of price per capita</h4>
+          <img
+            class="picture"
+            src="distribution_of_prices_per_capita.png"
+            alt=""
+          />
+          <p>
+            The price per capita and the number of corresponding restaurants are
+            roughly inversely proportional. The lower the price per capita, the
+            more restaurants there are. The higher the price per capita, the
+            fewer the number of restaurants. This is also in line with our
+            intuition that restaurants with high per capita prices are suitable
+            for a small number of people and a small number of scenarios, so the
+            number is low. The restaurants with less than 100 per capita, which
+            account for 75% of the total number of restaurants, are the daily
+            consumption places for the general public.
+          </p>
+          <h3 class="subtitle" id="Q2">
+            2. For the restaurants in the Yuen Long district, what is the
+            connection between the rating and the number of reviews?
+          </h3>
+          <img
+            class="picture"
+            src="the_relationship_between_score_and_number_of_comments.png"
+            alt=""
+          />
+          <p>
+            The maximum number of reviews for restaurants with 1, 2.5 and 5
+            points did not exceed 20. The number of reviews is too small, so the
+            individual reviews produce a significant effect, making the
+            reference of the rating questionable. In the 3-4.5 range, on the
+            other hand, it can be seen that the number of people's reviews is
+            directly proportional to the restaurant's rating. The higher the
+            rating of a restaurant, the more likely it is to motivate consumers
+            to go for it. More consumers mean more possibility of reviews.
+          </p>
+          <h3 class="subtitle" id="Q3">
+            3. For restaurants in the Yuen Long district, what is the connection
+            between rating and price per capita?
+          </h3>
+          <img
+            class="picture"
+            src="the_relationship_between_price_per_capita_and_rating.png"
+            alt=""
+          />
+          <p>
+            The figure shows that price per capita and restaurant rating is
+            directly proportional. The higher the price per capita, the higher
+            the restaurant rating. The lower the price per capita, the lower the
+            rating of the restaurant. This reflects the high rating of the
+            restaurant, the high demand in service, environment and taste, which
+            brings a good experience to diners. The restaurants with low price
+            per capita usually have lower costs, so they spend less on
+            decoration and service than the high per capita consumption
+            restaurants, and their ratings are not as good as the high per
+            capita consumption restaurants.
+          </p>
+          <h3 class="subtitle" id="Q4">
+            4. What are the highest-rated and most-reviewed restaurants in Yuen
+            Long?
+          </h3>
+          <p>
+            The result is obtained by sorting the data using the order by
+            statement in SQL.
+          </p>
+          <h4 class="detail">
+            Top 10 rated restaurants in Yuen Long District.
+          </h4>
+          <img class="picture" src="top_10_score.png" alt="" />
+          <h4 class="detail">
+            Top 10 restaurants in Yuen Long District in terms of number of
+            comments
+          </h4>
+          <img class="picture" src="top_10_comments.png" alt="" />
+          <h3 class="subtitle" id="Q5">
+            5. What are the most popular types of restaurants in Yuen Long
+            District?
+          </h3>
+          <img class="picture" src="top_10_type.png" alt="" />
+          <h3 class="subtitle" id="end">Summary</h3>
+          <p>
+            By looking at the TOP10 restaurants with the highest ratings and
+            reviews, we can see the preference of consumers for Japanese food in
+            Yuen Long District. Among the ten highest-rated restaurants, there
+            are 6 Japanese restaurants. Among the ten restaurants with the
+            highest number of reviews, there are 4 Japanese restaurants, all of
+            which are among the ten highest-rated restaurants. This also
+            validates the conclusion obtained in our visualization that stores
+            with high ratings also tend to have a higher number of reviews
+            (except for extreme values). In fact, Japanese food is also ranked
+            6th among the most popular types of restaurants in Yuen Long
+            District. Although Spanish, Peruvian, and Mexican cuisine are in the
+            top 3, they all have only one or two stores. Japanese cuisine, on
+            the other hand, has 105 stores and stands out in the ranking.
+          </p>
+        </article>
+        <aside id="sidebar">
+          <ul id="bar">
+            <li>
+              <a href="#Q1"
+                >Distribution of the ratings, number of reviews and per capita
+                of restaurants</a
+              >
+            </li>
+            <li>
+              <a href="#Q2">
+                Connection between the rating and the number of reviews
+              </a>
+            </li>
+            <li>
+              <a href="#Q3"> Connection between rating and price per capita </a>
+            </li>
+            <li>
+              <a href="#Q4">
+                The highest-rated and most-reviewed restaurants
+              </a>
+            </li>
+            <li>
+              <a href="#Q5"> The most popular types of restaurants </a>
+            </li>
+            <li>
+              <a href="#end">Summary</a>
+            </li>
+            <li>
+              <a href="#nav">Back to the top</a>
+            </li>
+          </ul>
+        </aside>
+      </section>
+      <section id="contact">
+        <div class="work">
+          <p>Contact Us</p>
+
+          <div class="social-icons">
+            <i class="fab fa-github"
+              ><a href="https://github.com/SongJie2022" target="_blank"
+                >My Github</a
+              ></i
+            >
+            <i class="fas fa-phone"
+              ><a href="tel:12345678">My Phone Number</a></i
+            >
+            <i class="fas fa-mail-bulk"
+              ><a href="mailto:1155163510@link.cuhk.edu.hk">My email</a></i
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
